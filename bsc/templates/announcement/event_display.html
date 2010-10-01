@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if event %}
+  <div id="event-{{ event.id }}" class="announcement event">
+    <div class="title">
+      <h2>{{ event.title }}</h2>
+      <span class="submitted">{{ event.created }} by {{ event.author }}</div>
+    </div>
+    <div class="body">{{ event.body }}</div>
+  </div>
+  {% else %}
+    <p>Not found.</p>
+  {% endif %}
+{% endblock %}

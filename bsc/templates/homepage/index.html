@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="latest_news">
+  {% if latest_news %}
+  <a class="prev">Prev</a>
+  <div class="scrollable">
+    <div class="items">
+      {% for news_set in latest_news %}
+        <div>
+        {% for news in news_set %}
+          <div class="item">
+            <h2>News {{ count }}</h2>
+            <img src="http://www.lipsum.com/images/lipsum05.gif" width="162" height="130" />
+            <div class="title"><a href="news/{{news.id}}">{{ news.title }}</a></div>
+            <div class="description">{{ news.body }}</div>
+          </div>
+        {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <a class="next">Next</a>
+  <a class="more">More</a>
+  {% else %}
+    <p>No news.</p>
+  {% endif %}
+</div>
+{% endblock %}

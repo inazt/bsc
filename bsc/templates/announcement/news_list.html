@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul id="news_list">
+  {% if news_list %}
+    {% for news in news_list %}
+      <li><a href="{% url news-display news.id %}">{{ news.title }}</a> - {{ news.created }}</li>
+    {% endfor %}
+  {% else %}
+    <p>No news.</p>
+  {% endif %}
+</ul>
+{% endblock %}

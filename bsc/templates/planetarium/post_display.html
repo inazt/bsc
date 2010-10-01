@@ -1,0 +1,10 @@
+{% extends 'base_sidebar.html' %}
+{% load markup %}
+{% block content %}
+  {% if post %}
+    <h2>{{ post.title }} from {{ post.blog }}</h2>
+    <div class="content">{{ post.body|markdown }}</div>
+  {% else %}
+    Post was not found.
+  {% endif %}
+{% endblock %}

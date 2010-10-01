@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block main %}
+  <div id="content" class="span-18 border">
+    {% block content %}{% endblock %}
+  </div>
+  <div id="sidebar" class="span-6 last">
+    {% block sidebar %}This is sidebar.{% endblock %}
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if news %}
+  <div id="news-{{ news.id }}" class="announcement news">
+    <div class="title">
+      <h2>{{ news.title }}</h2>
+      <span class="submitted">{{ news.created }} by {{ news.author }}</div>
+    </div>
+    <div class="body">{{ news.body }}</div>
+  </div>
+  {% else %}
+    <p>Not found.</p>
+  {% endif %}
+{% endblock %}
