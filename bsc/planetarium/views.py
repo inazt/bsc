@@ -1,5 +1,7 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 from bsc.planetarium.models import Post, Blog
 from bsc.planetarium.forms import BlogPostForm
@@ -10,6 +12,10 @@ def post_display(request, blog_slug, post_id):
     return render_to_response('planetarium/post_display.html', ctx)
 
 def post_new_form(request, blog_slug):
+    if not request.user.is_authenticated():
+        messages.error(request, 'Please log in first.')
+        return redirect('/')
+
     if request.method == 'POST':
         f = BlogPostForm(request.POST)
         if f.is_valid():
@@ -22,6 +28,11 @@ def post_new_form(request, blog_slug):
     return render_to_response('planetarium/post_new_form.html', ctx)
 
 def post_edit_form(request, blog_slug, post_id):
+    if not request.user.is_authenticated():
+        return redirect('/')
+
+    print request.user
+
     if request.method == 'POST':
         post = Post.objects.get(id=post_id)
         f = BlogPostForm(request.POST, instance=post)
