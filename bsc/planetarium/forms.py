@@ -1,9 +1,7 @@
-from django import forms
+from django.forms import ModelForm 
 
-class BlogPostForm(forms.Form):
-    title = forms.CharField(label='Title')
-    body = forms.TextField()
-    slug = forms.SlugField()
+from bsc.planetarium.models import Post
 
-
-
+class BlogPostForm(ModelForm):
+    class Meta:
+        model = Post
