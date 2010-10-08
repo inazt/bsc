@@ -1,0 +1,34 @@
+{% extends 'base_sidebar.html' %}
+{% load markup %}
+{% block left_panel %}
+  <div id="tweet-form">
+    <h3>What's happening?</h3>
+    <form method="post" action="/microblogs/admin/tweets/new/">
+    {% csrf_token %}
+    <textarea name="message" id="id_message"></textarea>
+    <input type="submit" value="Tweet" />
+  </div>
+  <div id="tweets-list">
+  {% if tweets_list %}
+    <ul>
+    {% for tweet in tweets_list %}
+      <li>
+        <div class="span-2"><img src="/m/img/avatar.jpg" /></div>
+        <div class="span-12 last">
+          <div class="author">{{ tweet.author }}</div>
+          <div class="message">{{ tweet.message|markdown }}</div>
+          <div class="datetime">{{ tweet.created }}</div>
+          <div class="delete"><a href="{% url tweet_delete microblog=tweet.microblog tweet_id=tweet.id %}">delete</a></div>
+        </div>
+        <div class="clear"></div>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <div class="no">No tweets right now.</div>
+  {% endif %}
+  </div>
+{% endblock %}
+{% block right_panel %}
+  Number of tweets: {{ count }}
+{% endblock %}

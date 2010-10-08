@@ -1,0 +1,58 @@
+body {
+  background: #EFEFEF;
+}
+
+#topbar {
+  background: #000;
+  color: #FFF;
+  height: 50px;
+  line-height: 50px;
+}
+
+#topbar a {
+  color: #FFF;
+}
+
+#wrapper {
+  background: #FFF;
+  margin-top: 20px;
+  border: 1px solid #CCC;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+#main {
+  padding: 20px;
+}
+
+form table th label {
+  display: none;
+}
+
+textarea#id_message {
+  width: 100%;
+  height: 100px;
+}
+
+#tweets-list > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+#tweets-list > ul > li {
+  border-bottom: 1px solid #ccc;
+  float: left;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+#tweets-list .author {
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}
