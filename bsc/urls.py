@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 
     (r'^', include('bsc.announcement.urls')),
     (r'^', include('bsc.planetarium.urls')),
+    (r'^', include('bsc.auth.urls')),
 
     # Example:
     # (r'^bsc/', include('bsc.foo.urls')),

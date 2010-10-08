@@ -119,6 +119,17 @@
     <div class="clear"></div>
 
   </div>
+
+  <div id="messages" class="span-24 last">
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+  </div>
+
   <div id="main" class="span-24 last">{% block main %}{% endblock %}</div> 
   <div id="footer" class="span-24 last">
     <div class="menu-block">

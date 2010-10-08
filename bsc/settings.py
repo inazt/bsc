@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'bsc.urls'
@@ -98,14 +99,17 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'south',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    # Additional apps:
     'django.contrib.markup',
+    'django.contrib.flatpages',
+    'south',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'bsc.homepage',
     'bsc.news',
     'bsc.announcement',
     'bsc.planetarium',
+    'bsc.auth',
 )
